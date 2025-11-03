@@ -38,5 +38,31 @@
 
 <script src="assets/js/main.js"></script>
 
+    <script>
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const fullname = document.getElementById("fullname").value;
+  const email = document.getElementById("email").value;
+  const country = document.getElementById("country").value;
+
+  try {
+    await addDoc(collection(db, "registrations"), {
+      fullname,
+      email,
+      country,
+      timestamp: new Date()
+    });
+
+    alert("✅ Registration Successful. Thank you for joining iPray Global!");
+    document.getElementById("registerForm").reset();
+  } 
+  catch (error) {
+    alert("❌ Error saving data: " + error);
+  }
+});
+</script>
+
+
 </body>
 </html>
