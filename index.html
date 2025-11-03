@@ -1,50 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPray Global</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>iPray Global – December 12, 2025</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f2f5f7;
+    }
+
+    .hero {
+        background: linear-gradient(to bottom right, #1a237e, #4caf50);
+        color: white;
+        padding: 120px 20px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+        font-weight: bold;
+    }
+
+    .hero p {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .btn-main {
+        padding: 12px 28px;
+        background: #ffeb3b;
+        color: #000;
+        border-radius: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn-main:hover {
+        background: #fff;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    footer {
+        background: #111;
+        color: #ccc;
+        padding: 25px;
+        text-align: center;
+        margin-top: 40px;
+    }
+</style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
-<header>
-    <nav class="navbar">
-        <h2 class="logo">iPray Global</h2>
-        <ul class="nav-links">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background:#1a237e;">
+  <div class="container">
+    <a class="navbar-brand" href="#">iPray Global</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<!-- HERO SECTION -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="register.html" class="btn btn-warning ms-3">Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
 <section class="hero">
-    <h1>Join 1 Million Youth Worldwide</h1>
-    <p>24 Hours of Continuous Prayer — December 12, 2025</p>
-    <a href="register.html" class="btn">Register Now</a>
+    <div class="container">
+        <h1>iPray Global — 24 Hours of Prayer Chain</h1>
+        <p>Mobilizing 1,000,000 youths worldwide on December 12, 2025</p>
+        <a href="register.html" class="btn-main mt-3">Join the Movement</a>
+
+        <h3 class="mt-5">Countdown to the Prayer Day</h3>
+        <h2 id="countdown" style="font-size:38px; margin-top:10px;"></h2>
+    </div>
 </section>
 
-<!-- COUNTDOWN SECTION -->
-<section class="countdown-section">
-    <h2>Countdown to Prayer Day</h2>
-    <div id="countdown">
-        <span id="days">00</span> Days
-        <span id="hours">00</span> Hours
-        <span id="minutes">00</span> Minutes
-        <span id="seconds">00</span> Seconds
+<!-- ABOUT -->
+<section class="section text-center">
+    <div class="container">
+        <h2><strong>What is iPray?</strong></h2>
+        <p style="max-width:700px; margin:auto;">
+            iPray Global is a movement inspired by God to unite 1 million youths for a day of global prayer.
+            It does not matter your nation, denomination, or tribe — we lift one voice to God!
+        </p>
+        <a href="about.html" class="btn btn-primary mt-3">Learn More</a>
     </div>
 </section>
 
 <footer>
-    <p>© 2025 iPray Global | All Rights Reserved</p>
+    © 2025 iPray Global. All Rights Reserved.
 </footer>
 
-<script src="assets/js/main.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Countdown JS -->
+<script>
+var countDownDate = new Date("Dec 12, 2025 00:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+}, 1000);
+</script>
 
 </body>
 </html>
