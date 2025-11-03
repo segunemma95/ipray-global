@@ -276,8 +276,8 @@
       country,
       timestamp: new Date().toString()
     }).then(() => {
-      alert("✅ Thank you for joining! You are registered.");
-      document.getElementById("registrationForm").reset();
+      window.location.href = "thankyou.html";
+
     }).catch((err) => {
       alert("❌ Database Error: " + err.message);
     });
