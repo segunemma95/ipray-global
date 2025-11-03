@@ -1,76 +1,94 @@
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #000;
-    color: #fff;
-    text-align: center;
-    padding: 30px;
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    color: #333;
 }
 
-header h1 {
-    font-size: 48px;
+/* NAVIGATION */
+header {
+    background: #000;
+    padding: 12px 0;
+}
+nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+nav ul li a.active, nav ul li a:hover {
+    color: #00ffea;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+    background: white;
+}
+.hero h1 {
+    font-size: 40px;
     margin-bottom: 10px;
 }
-
-header p {
-    font-size: 20px;
-    color: #ffdf6c;
+.btn {
+    background: black;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
 }
 
-input, button {
-    padding: 12px;
-    margin: 8px;
-    width: 250px;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-button {
-    background: #ffdf6c;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #ffc300;
-}
-
-.page-section {
-    max-width: 800px;
-    margin: 40px auto;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-}
-
-/* Form Styling */
-input {
+/* FORMS */
+.form-section {
     width: 90%;
-    padding: 12px;
-    margin: 10px auto;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    max-width: 450px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
 }
-
+.form-section h2 {
+    text-align: center;
+}
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+}
 button {
-    background: #00b894;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: black;
     color: white;
     border: none;
-    padding: 12px 25px;
-    cursor: pointer;
-    border-radius: 6px;
-}
-button:hover {
-    background: #019873;
+    font-size: 16px;
 }
 
-select {
+/* ABOUT */
+.about-section {
     width: 90%;
-    padding: 12px;
-    margin: 10px auto;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    max-width: 700px;
+    background: white;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 8px;
 }
 
 
