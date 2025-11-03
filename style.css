@@ -35,3 +35,32 @@ button {
 button:hover {
     background: #ffc300;
 }
+
+.page-section {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+/* Form Styling */
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    background: #00b894;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+button:hover {
+    background: #019873;
+}
