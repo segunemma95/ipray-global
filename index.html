@@ -3,31 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPray Global | Pray. Unite. Change.</title>
-    <link rel="stylesheet" href="style.css">
+    <title>iPray Global</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <header>
-        <h1>iPray Global</h1>
-        <p>Mobilizing 1 million youths in a 24-hour global prayer chain – December 12, 2025</p>
-    </header>
 
-    <section class="countdown">
-        <h2>Prayer Chain Begins In:</h2>
-        <div id="timer"></div>
-    </section>
+<!-- NAVIGATION -->
+<header>
+    <nav class="navbar">
+        <h2 class="logo">iPray Global</h2>
+        <ul class="nav-links">
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section class="register">
-        <h2>Register to Join</h2>
-        <form id="registrationForm">
-            <input id="name" type="text" placeholder="Full Name" required>
-            <input id="email" type="email" placeholder="Email" required>
-            <input id="country" type="text" placeholder="Country" required>
-            <button type="submit">Register</button>
-        </form>
-    </section>
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Join 1 Million Youth Worldwide</h1>
+    <p>24 Hours of Continuous Prayer — December 12, 2025</p>
+    <a href="register.html" class="btn">Register Now</a>
+</section>
 
-    <script src="script.js"></script>
+<!-- COUNTDOWN SECTION -->
+<section class="countdown-section">
+    <h2>Countdown to Prayer Day</h2>
+    <div id="countdown">
+        <span id="days">00</span> Days
+        <span id="hours">00</span> Hours
+        <span id="minutes">00</span> Minutes
+        <span id="seconds">00</span> Seconds
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 iPray Global | All Rights Reserved</p>
+</footer>
+
+<script src="assets/js/main.js"></script>
+
 </body>
 </html>
