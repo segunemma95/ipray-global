@@ -239,13 +239,12 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
-<script src="firebase.js" type="module"></script>
 
     <!-- Firebase -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
   import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
-
+  
   const firebaseConfig = {
     apiKey: "AIzaSyDyzpL55SSiDRcPt6Hm8IK07k79a11bmDI",
     authDomain: "ipray-global.firebaseapp.com",
@@ -259,29 +258,28 @@
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
 
-  // FORM SUBMIT
-  document.getElementById("regForm").addEventListener("submit", function(e) {
+  document.getElementById("registrationForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
     const name = document.getElementById("name").value;
-    const country = document.getElementById("country").value;
     const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const country = document.getElementById("country").value;
 
     const usersRef = ref(db, "registrations");
     const newUser = push(usersRef);
 
     set(newUser, {
-      name: name,
-      email: email,
-      country: country,
+      name,
+      email,
+      phone,
+      country,
       timestamp: new Date().toString()
-    })
-    .then(() => {
+    }).then(() => {
       alert("✅ Thank you for joining! You are registered.");
-      document.getElementById("regForm").reset();
-    })
-    .catch((err) => {
-      alert("❌ Error saving data: " + err.message);
+      document.getElementById("registrationForm").reset();
+    }).catch((err) => {
+      alert("❌ Database Error: " + err.message);
     });
   });
 </script>
