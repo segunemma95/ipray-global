@@ -241,29 +241,48 @@
 <script src="assets/js/main.js"></script>
 <script src="firebase.js" type="module"></script>
 
-    <script>
-document.getElementById("registerForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
-  const fullname = document.getElementById("fullname").value;
-  const email = document.getElementById("email").value;
-  const country = document.getElementById("country").value;
+  const firebaseConfig = {
+    apiKey: "AIzaSyDyzpL55SSiDRcPt6Hm8IK07k79a11bmDI",
+    authDomain: "ipray-global.firebaseapp.com",
+    projectId: "ipray-global",
+    storageBucket: "ipray-global.firebasestorage.app",
+    messagingSenderId: "762667869397",
+    appId: "1:762667869397:web:dca75780999748ef7e2e5c"
+  };
 
-  try {
-    await addDoc(collection(db, "registrations"), {
-      fullname,
-      email,
-      country,
-      timestamp: new Date()
-    });
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    alert("✅ Registration Successful. Thank you for joining iPray Global!");
-    document.getElementById("registerForm").reset();
-  } 
-  catch (error) {
-    alert("❌ Error saving data: " + error);
-  }
-});
+  // Handle Form Submission
+  document.getElementById("registerForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const country = document.getElementById("country").value;
+
+    try {
+      await addDoc(collection(db, "registrations"), {
+        name: name,
+        email: email,
+        phone: phone,
+        country: country,
+        date: new Date()
+      });
+
+      alert("✅ Registration successful! God bless you.");
+      document.getElementById("registerForm").reset();
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("❌ There was an error. Please try again.");
+    }
+  });
 </script>
 
 
