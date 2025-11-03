@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - iPray Global</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
 <header>
-    <nav class="navbar">
-        <h2 class="logo">iPray Global</h2>
-        <ul class="nav-links">
+    <nav>
+        <div class="logo">iPRAY GLOBAL</div>
+        <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a class="active" href="register.html">Register</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 </header>
 
-<section class="page-section">
-    <h1>Register to Join the 24-Hour Global Prayer Chain</h1>
+<section class="form-section">
+    <h2>Register to Join</h2>
+    
+    <form id="registrationForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Phone Number" required>
 
-    <form id="registerForm">
-        <input type="text" id="name" placeholder="Full Name" required><br>
-        <input type="email" id="email" placeholder="Email Address" required><br>
-
-        <!-- ✅ COUNTRY DROPDOWN -->
+                <!-- ✅ COUNTRY DROPDOWN -->
                     <select id="country" required>
     <option value="" disabled selected>Select Country</option>
     <option value="Afghanistan">Afghanistan</option>
