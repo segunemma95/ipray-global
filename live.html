@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPray Global — Live Prayer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      margin: 0; padding: 0;
+    }
+    header {
+      background: #F1C40F;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      margin-top: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      border: none;
+    }
+    #chat-box, #prayer-form {
+      border: 2px solid #F1C40F;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    h3 { color: #F1C40F; }
+    button {
+      background: #F1C40F;
+      color: white;
+      padding: 15px;
+      border: none;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  🌍 iPray Global — Live Prayer Stream
+</header>
+
+<div class="container">
+
+  <!-- ✅ LIVE STREAM VIDEO -->
+  <h3>Live Now</h3>
+  <iframe
+    id="liveStream"
+    src="https://www.youtube.com/embed/LIVE_STREAM_ID?autoplay=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+
+  <!-- ✅ PRAYER REQUEST FORM -->
+  <div id="prayer-form">
+    <h3>Send Your Prayer Request</h3>
+    <input type="text" id="name" placeholder="Your Name" style="width:100%; padding:10px;">
+    <textarea id="request" placeholder="Prayer Request..." style="width:100%; padding:10px; margin-top:10px;"></textarea>
+    <button onclick="submitRequest()">Submit Prayer Request</button>
+  </div>
+
+  <!-- ✅ DISPLAY REQUESTS -->
+  <div id="chat-box">
+    <h3>Prayer Requests</h3>
+    <ul id="requests"></ul>
+  </div>
+
+</div>
+
+<!-- ✅ Firebase Setup -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+  import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDyzpL55SSiDRcPt6Hm8IK07k79a11bmDI",
+    authDomain: "ipray-global.firebaseapp.com",
+    databaseURL: "https://ipray-global-default-rtdb.firebaseio.com",
+    projectId: "ipray-global",
+    storageBucket: "ipray-global.appspot.com",
+    messagingSenderId: "762667869397",
+    appId: "1:762667869397:web:5ac930cb9a9190b57e2e5c"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const requestRef = ref(db, "liveRequests");
+
+  // ✅ Send request to Firebase
+  window.submitRequest = function() {
+    const name = document.getElementById("name").value;
+    const request = document.getElementById("request").value;
+
+    if(!name || !request) return alert("Please enter your name and request");
+
+    push(requestRef, { name, request });
+    document.getElementById("name").value = "";
+    document.getElementById("request").value = "";
+  }
+
+  // ✅ Display live requests
+  onValue(requestRef, snapshot => {
+    const data = snapshot.val();
+    const list = document.getElementById("requests");
+    list.innerHTML = "";
+    for (let id in data) {
+      let li = document.createElement("li");
+      li.textContent = `🙏 ${data[id].name}: ${data[id].request}`;
+      list.appendChild(li);
+    }
+  });
+</script>
+
+</body>
+</html>
